@@ -13,8 +13,6 @@ pip install djsphinx
 Add to settings.py:
 
 ```python
-INSTALLED_APPS += ['djsphinx']
-
 SPHINX_HOST = '127.0.0.1'
 SPHINX_PORT = 9312
 ```
