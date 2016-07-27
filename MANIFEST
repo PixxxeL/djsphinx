@@ -2,3 +2,4 @@
 setup.py
 djsphinx\__init__.py
 djsphinx\model_manager.py
+djsphinx\sphinxapi.py

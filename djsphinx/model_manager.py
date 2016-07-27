@@ -11,7 +11,7 @@ class SphinxManager(models.Manager):
     def __init__(self, *args, **kwargs):
         self.sphinx_index = kwargs.get('index')
         assert self.sphinx_index, 'You must define index argument in SphinxManager constructor invokation'
-        super(SphinxManager, self).__init__(*args, **kwargs)
+        super(SphinxManager, self).__init__()
 
     def __getattr__(self, attr, *args):
         try:
