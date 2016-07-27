@@ -17,8 +17,8 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
     ],
-    include_package_data = True,
-    install_requires = [
-        'https://github.com/jsocol/sphinxapi/archive/master.zip'
-    ],
+    #include_package_data = True,
+    #install_requires = [
+    #    'https://github.com/jsocol/sphinxapi/archive/master.zip'
+    #],
 )
