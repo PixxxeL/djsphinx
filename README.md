@@ -1,4 +1,4 @@
-# Django Sphinx Search
+# DONT USE IT! Very terribly! I'm remove it soon. Django Sphinx Search
 
 Sphinx Search Engine integration with Django ORM
 through Python client for Sphinx by Michael Kurze, James Socol
