@@ -158,7 +158,7 @@ class SphinxClient:
         """
         Set searchd server host and port.
         """
-        assert(isinstance(host, str))
+        assert(isinstance(host, basestring))
         if host.startswith('/'):
             self._path = host
             return
