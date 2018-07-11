@@ -1,7 +1,7 @@
 try:
-    from .model_manager import SphinxManager
+    from .wrapper import sphinx_search
 except ImportError:
     pass
 
-VERSION = (0, 0, 6,)
+VERSION = (0, 0, 7,)
 __version__ = '.'.join(map(str, VERSION))

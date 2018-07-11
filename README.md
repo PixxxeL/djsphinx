@@ -1,4 +1,4 @@
-# DONT USE IT! Very terribly! I'm remove it soon. Django Sphinx Search
+# DONT USE IT! SphinxSearch legacy client wrapper for Django 
 
 Sphinx Search Engine integration with Django ORM
 through Python client for Sphinx by Michael Kurze, James Socol
@@ -10,26 +10,22 @@ Install by PIP:
 pip install djsphinx
 ```
 
-Add to settings.py:
+Add to `settings.py` optionally:
 
 ```python
 SPHINX_HOST = '127.0.0.1'
 SPHINX_PORT = 9312
-```
-
-Set manager for any your model:
-
-```python
-from djsphinx import SphinxManager
-
-class AnyModel(models.Model):
-    objects = SphinxManager(index='some_sphinx_index_name')
+SPHINX_DEFAULT_INDEX = 'index_name'
 ```
 
 Usa like this:
 
 ```python
-AnyModel.objects.search('what you want to search')
+from djsphinx import sphinx_search
+
+sphinx_search('what you want to search')
 # or
-AnyModel.objects.search('what you want to search', 'other_sphinx_index_name')
+sphinx_search('what you want to search', 'other_sphinx_index_name')
 ```
+
+`sphinx_search` return list of IDs.
