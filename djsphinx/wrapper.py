@@ -1,10 +1,15 @@
-# -*- coding: utf-8 -*-
+import sys
 
 try:
     from django.conf import settings
 except ImportError:
     settings = object()
-from .sphinxapi import *
+
+py_ver = sys.version_info
+if py_ver[0] > 2:
+    from .sphinxapi_py3 import *
+else:
+    from .sphinxapi import *
 
 def sphinx_search(query_str, index=None):
     host = getattr(settings, 'SPHINX_HOST', '127.0.0.1')
@@ -14,7 +19,7 @@ def sphinx_search(query_str, index=None):
     cl.SetServer(host, port)
     cl.SetMatchMode(SPH_MATCH_ALL)
     res = cl.Query(query_str, index)
-    if res and res.has_key('matches'):
-        return map(lambda m: m['id'], res['matches'])
+    if res and 'matches' in res:
+        return list(map(lambda m: m['id'], res['matches']))
     else:
         return []
