@@ -274,8 +274,8 @@ class SphinxClient:
         """
         Set offset and count into result set, and optionally set max-matches and cutoff limits.
         """
-        assert ( type(offset) in [int,long] and 0<=offset<16777216 )
-        assert ( type(limit) in [int,long] and 0<limit<16777216 )
+        assert ( type(offset) in [int] and 0<=offset<16777216 )
+        assert ( type(limit) in [int] and 0<limit<16777216 )
         assert(maxmatches>=0)
         self._offset = offset
         self._limit = limit
@@ -357,8 +357,8 @@ class SphinxClient:
         Set IDs range to match.
         Only match records if document ID is beetwen $min and $max (inclusive).
         """
-        assert(isinstance(minid, (int, long)))
-        assert(isinstance(maxid, (int, long)))
+        assert(isinstance(minid, (int)))
+        assert(isinstance(maxid, (int)))
         assert(minid<=maxid)
         self._min_id = minid
         self._max_id = maxid
@@ -373,7 +373,7 @@ class SphinxClient:
         assert iter(values)
 
         for value in values:
-            assert(isinstance(value, (int,long)))
+            assert(isinstance(value, (int)))
 
         self._filters.append ( { 'type':SPH_FILTER_VALUES, 'attr':attribute, 'exclude':exclude, 'values':values } )
 
@@ -384,8 +384,8 @@ class SphinxClient:
         Only match records if 'attribute' value is beetwen 'min_' and 'max_' (inclusive).
         """
         assert(isinstance(attribute, str))
-        assert(isinstance(min_, (int,long)))
-        assert(isinstance(max_, (int,long)))
+        assert(isinstance(min_, (int)))
+        assert(isinstance(max_, (int)))
         assert(min_<=max_)
 
         self._filters.append ( { 'type':SPH_FILTER_RANGE, 'attr':attribute, 'exclude':exclude, 'min':min_, 'max':max_ } )

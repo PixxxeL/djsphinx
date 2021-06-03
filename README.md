@@ -25,7 +25,9 @@ from djsphinx import sphinx_search
 
 sphinx_search('what you want to search')
 # or
-sphinx_search('what you want to search', 'other_sphinx_index_name')
+sphinx_search('what you want to search', index='other_sphinx_index_name')
+# you may set offset and limit of request (default - 0 and 10000)
+sphinx_search('what you want to search', offset=0, limit=100)
 ```
 
 `sphinx_search` return list of IDs.
